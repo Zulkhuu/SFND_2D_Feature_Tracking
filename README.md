@@ -35,7 +35,7 @@ See the classroom instruction and code comments for more details on each of thes
 
 ## Performance
 
-MP.7 Number of detected keypoints on the preceding vehicle
+### MP.7 Number of detected keypoints on the preceding vehicle
 
 | Detector type | Total number of detected keypoints | Keypoint distribution |
 | ------------- | ------------- | ------------- |
@@ -47,9 +47,9 @@ MP.7 Number of detected keypoints on the preceding vehicle
 | AKAZE  | 1670 | Good, most keypoints are scattered around car edge | 
 | SIFT  | 1386 | Good |
 
-MP.8 Number of matched keypoints 
+### MP.8 Number of matched keypoints 
 
-Number of matched keypointsfor all 10 images using all possible combinations of detectors and descriptors can be found in performance.csv file
+Number of matched keypointsfor all 10 images using all possible combinations of detectors and descriptors can be found in [performance.csv](performance.csv) file.
 
 TOP3 detector / descriptor combinations for detecting most matches.
 
@@ -59,7 +59,7 @@ TOP3 detector / descriptor combinations for detecting most matches.
 | BRISK-BRIEF  | 1704 |
 | BRISK-BRISK  | 1570 |
 
-MP.9 Execution time
+### MP.9 Execution time
 
 TOP3 detector / descriptor combinations for shortest execution time.
 
