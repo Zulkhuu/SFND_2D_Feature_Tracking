@@ -32,3 +32,43 @@ See the classroom instruction and code comments for more details on each of thes
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./2D_feature_tracking`.
+
+## Performance
+
+MP.7 Number of detected keypoints on the preceding vehicle
+
+| Detector type | Total number of detected keypoints | Keypoint distribution |
+| ------------- | ------------- | ------------- |
+| Shi-Tomasi  | 1179 | Good |
+| Harris  | 248 | Too few point |
+| FAST  | 1491 | Good, but few point around number plate, many outside car | 
+| BRISK  | 2762 | Good, similar to FAST | 
+| ORB  | 1161 | Not good, most keypoints concentrated in small area | 
+| AKAZE  | 1670 | Good, most keypoints are scattered around car edge | 
+| SIFT  | 1386 | Good |
+
+MP.8 Number of matched keypoints 
+
+Number of matched keypointsfor all 10 images using all possible combinations of detectors and descriptors can be found in performance.csv file
+
+TOP3 detector / descriptor combinations for detecting most matches.
+
+| Detector-Descriptor combination | Number of matches |
+| ------------- | ------------- |
+| BRISK-SIFT  | 1739 |
+| BRISK-BRIEF  | 1704 |
+| BRISK-BRISK  | 1570 |
+
+MP.9 Execution time
+
+TOP3 detector / descriptor combinations for shortest execution time.
+
+| Detector-Descriptor combination | Total execution time of keypoint detection and descriptor calculation |
+| ------------- | ------------- |
+| FAST-BRIEF  | 1.54ms |
+| FAST-ORB  | 3.8ms |
+| ORB-BRIEF  | 6.3ms |
+
+
+
+
