@@ -67,28 +67,27 @@ int main(int argc, const char *argv[])
     int imgFillWidth = 4;  // no. of digits which make up the file index (e.g. img-0001.png)
 
     // misc
-    int dataBufferSize = 2;       // no. of images which are held in memory (ring buffer) at the same time
-    vector<DataFrame> dataBuffer; // list of data frames which are held in memory at the same time
-    bool bVis = false;            // visualize results
+    int dataBufferSize = 2;         // no. of images which are held in memory (ring buffer) at the same time
+    vector<DataFrame> dataBuffer;   // list of data frames which are held in memory at the same time
+    bool bVis = false;              // visualize results
+    bool save_result = false;       // Save result to performance.csv
 
     /* MAIN LOOP OVER ALL IMAGES */
     vector<perfStat> performances{};
     
+    // Use this section for testing all possilbe detector/descriptor combination
     /*
     vector<string> detectorsTypes{"SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"};
     vector<string> descriptorTypes{"BRISK", "BRIEF", "ORB", "FREAK", "AKAZE", "SIFT"};
     vector<string> distanceTypes{"DES_BINARY", "DES_HOG"};
+    save_result = true;
     */
     
-    
-    vector<string> detectorsTypes{"SHITOMASI"};
-    vector<string> descriptorTypes{"BRISK"};
-    vector<string> distanceTypes{"DES_BINARY"};
-    
+    // Use this section for running selected detector/descriptor combination
+    vector<string> detectorsTypes{"SHITOMASI"};     // SHITOMASI, HARRIS, FAST, BRISK, ORB, AKAZE, SIFT
+    vector<string> descriptorTypes{"BRISK"};        // BRIEF, ORB, FREAK, AKAZE, SIFT
+    vector<string> distanceTypes{"DES_BINARY"};     // DES_BINARY, DES_HOG
 
-    //string detectorType = "BRISK"; // HARRIS, FAST, BRISK, ORB, AKAZE, SIFT
-    //string descriptorType = "ORB"; // BRIEF, ORB, FREAK, AKAZE, SIFT
-    //string distanceType = "DES_HOG";  // DES_BINARY, DES_HOG
 
     for(const string& detectorType : detectorsTypes) {
         for(const string& descriptorType : descriptorTypes) {
@@ -274,7 +273,6 @@ int main(int argc, const char *argv[])
         } //eof loop over all descriptors
     } //eof loop over all detectors
 
-    bool save_result = false;
     if(save_result) {
         // save performance to performance.csv
         std::ofstream result_file;
